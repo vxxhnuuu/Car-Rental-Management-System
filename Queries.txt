@@ -1,0 +1,36 @@
+CREATE DATABASE car_rental_management_system;
+USE car_rental_management_system;
+
+CREATE TABLE user (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL
+);
+
+INSERT INTO user (username, password) VALUES ('admin', 'password');
+
+CREATE TABLE cars (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    make VARCHAR(255) NOT NULL,
+    model VARCHAR(255) NOT NULL,
+    year INT NOT NULL,
+    color VARCHAR(255) NOT NULL,
+    price DECIMAL(10, 2) NOT NULL,
+    available BOOLEAN NOT NULL DEFAULT TRUE
+);
+
+CREATE TABLE customer (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE rental (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    car_id INT,
+    customer_id INT,
+    rental_days INT,
+    FOREIGN KEY (car_id) REFERENCES cars(id),
+    FOREIGN KEY (customer_id) REFERENCES customer(id)
+);
+
