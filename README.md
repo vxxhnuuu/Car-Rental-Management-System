@@ -79,6 +79,7 @@ Car-Rental-Management-System/
 │   ├── __init__.py
 │   ├── auth.py
 │   ├── car.py
+│   ├── rental.py
 ├── templates/
 │   ├── login.html
 │   ├── index.html
